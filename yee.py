@@ -1,0 +1,1 @@
+print("yeee\n"*10)
