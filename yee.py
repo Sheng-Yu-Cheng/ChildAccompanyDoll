@@ -1,1 +1,1 @@
-print("yeee\n"*100)
+print("yeeeeeeeee\n"*10)
