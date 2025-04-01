@@ -1,7 +1,6 @@
 /Debug
 test.py
 *.txt
-*.m4a
 *.json
 *.srt
 *.tsv
