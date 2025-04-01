@@ -58,8 +58,11 @@ if __name__ == "__main__":
     data = {
         "model": "deepseek-r1",
         "messages": conversation,
-        "stream": False
+        "stream": False,
+        "use_cache": True,
+        "max_new_tokens": 100  # 限制輸出長度
     }
+
 
     url = "http://localhost:11434/api/chat"
     response = requests.post(url, json=data)
