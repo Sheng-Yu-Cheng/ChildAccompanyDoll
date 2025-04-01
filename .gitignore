@@ -5,4 +5,4 @@ test.py
 *.json
 *.srt
 *.tsv
-*.vtt
+*.vtt/.venv
