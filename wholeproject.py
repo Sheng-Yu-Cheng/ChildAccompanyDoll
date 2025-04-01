@@ -1,4 +1,5 @@
 import whisper
+import pyttsx3
 
 model = whisper.load_model("turbo")
 result = model.transcribe("test.m4a")
@@ -31,6 +32,17 @@ def remove_think_tags(text):
     """移除 <think> 標籤及其內容"""
     return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
 
+
+ 
+def speak(txt):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    engine.setProperty('rate', 180)
+    engine.say(txt)
+    engine.runAndWait()
+    
+
 if __name__ == "__main__":
     input_file = "test.txt"   # 讀取的文檔
     output_file = "output.txt"  # 儲存 AI 回應的文檔
@@ -62,6 +74,7 @@ if __name__ == "__main__":
         answer = response_json["message"]["content"]
         filtered_answer = remove_think_tags(answer)  # 移除 <think> 標籤內容
         save_to_file(output_file, filtered_answer)  # 存入 output.txt
+        speak(filtered_answer)
     else:
         print("API 回應格式異常：", response_json)
 
