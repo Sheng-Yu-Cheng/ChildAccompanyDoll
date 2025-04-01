@@ -60,7 +60,7 @@ if __name__ == "__main__":
         "messages": conversation,
         "stream": False,
         "use_cache": True,
-        "max_new_tokens": 25  # 限制輸出長度
+        "max_new_tokens": 1  # 限制輸出長度
     }
 
 
