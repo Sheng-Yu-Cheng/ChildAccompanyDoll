@@ -5,3 +5,4 @@ test.py
 *.srt
 *.tsv
 *.vtt/.venv
+*.m4a
