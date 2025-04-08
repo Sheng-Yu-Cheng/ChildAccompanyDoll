@@ -1,1 +1,2 @@
 class RealTimeTranscriptor:
+    pass
