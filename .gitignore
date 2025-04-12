@@ -6,3 +6,5 @@ test.py
 *.tsv
 *.vtt/.venv
 *.m4a
+*.wav
+*.mp3
