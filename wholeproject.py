@@ -2,7 +2,7 @@ import whisper
 import pyttsx3
 
 model = whisper.load_model("turbo")
-result = model.transcribe("test.m4a")
+result = model.transcribe("story.mp3")
 with open("test.txt", "w", encoding="utf-8") as file:
     file.write(result["text"])
 
@@ -37,7 +37,7 @@ def remove_think_tags(text):
 def speak(txt):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
+    # engine.setProperty('voice', voices[1].id)
     engine.setProperty('rate', 180)
     engine.say(txt)
     engine.runAndWait()
@@ -52,7 +52,7 @@ if __name__ == "__main__":
         exit()
 
     conversation = [
-        {"role": "system", "content": f"這是參考文件的內容，你可以根據它來回答問題：\n\n{document_content}"}
+        {"role": "system", "content": f"你是一個小孩的陪伴者，請根據小孩說的話與他互動:\n\n{document_content}"}
     ]
 
     data = {
