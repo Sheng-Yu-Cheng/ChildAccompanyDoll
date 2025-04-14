@@ -10,3 +10,4 @@ test.py
 *.wav
 *.mp3
 audio_log/
+.venv
