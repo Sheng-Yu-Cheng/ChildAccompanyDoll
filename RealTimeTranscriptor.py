@@ -8,7 +8,7 @@ import uuid
 
 class RealTimeTranscriptor(threading.Thread):
     def __init__(self, 
-            chunk_size: int = 5000,    # transcription chunk size (ms)
+            chunk_size: int = 3000,    # transcription chunk size (ms)
             input_rate: int = 16000,   # pyaudio: input rate (samples per second)
             buffer_size: int = 1024,   # pyaudio: size of a audio sample buffer
             channel_amount: int = 1,   # pyaudio: microphone channel amount
@@ -47,7 +47,9 @@ class RealTimeTranscriptor(threading.Thread):
                 wf.setnchannels(self.channel_amount)
                 wf.setsampwidth(self.__pyaudio.get_sample_size(pyaudio.paInt16))
                 wf.setframerate(self.input_rate)
-                wf.writeframes(audio_np.tobytes())
+                wf.writeframes(audio_np.tobytes()
+            )
+            print("saved")
             result = self.transcriptor.transcribe(
                 temp_filename, 
                 condition_on_previous_text = False,
